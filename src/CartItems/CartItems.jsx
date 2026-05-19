@@ -8,7 +8,7 @@ export default function CartItems() {
   const { getTotalCartAmount, all_product, cartItems, removeFromCart } =
     useContext(ShopContext);
   return (
-    <div className="cartitems flex flex-col mt-10  gap-3">
+    <main className="cartitems flex flex-col mt-10  gap-3">
       <div className="cartitems-format-main flex gap-36 text-[#454545] ml-10 font-medium">
         <p>Products</p>
         <p>Title</p>
@@ -76,6 +76,6 @@ export default function CartItems() {
           <button className="bg-black text-white items-center p-3">Submit</button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

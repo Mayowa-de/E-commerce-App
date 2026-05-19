@@ -5,7 +5,7 @@ import Items from '../Items/Items'
 
 export default function NewCollections() {
   return (
-    <div className='NewCollections w-full justify-center items-center flex flex-col gap-5 px-2'>
+    <main className='NewCollections w-full justify-center items-center flex flex-col gap-5 px-2'>
       <h1 className='text-3xl font-bold'>NEW COLLECTIONS</h1>
       <hr/>
       <div className="collections flex flex-col md:gap-5 w-full  md:w-5xl md:grid md:grid-cols-3">
@@ -22,6 +22,6 @@ export default function NewCollections() {
               )
         })}
       </div>
-    </div>
+    </main>
   )
 }

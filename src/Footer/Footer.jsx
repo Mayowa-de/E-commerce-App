@@ -21,13 +21,13 @@ export default function Footer() {
       </ul>
       <div className="footer-social-icon flex gap-5 justify-center">
         <div className="footer-icons-container bg-[#fbfbfb] p-[10px] pb-[6px] border-[1px] border-[#ebebeb]">
-          <img src={instagram_icon} alt="" />
+          <img src={instagram_icon} alt="instagram_icon" loading="lazy" />
         </div>
         <div className="footer-icons-container bg-[#fbfbfb] p-[10px] pb-[6px] border-[1px] border-[#ebebeb]">
-          <img src={pinestar_icon} alt="pinestar" />
+          <img src={pinestar_icon} alt="pinestar_icon" loading="lazy"/>
         </div>
         <div className="footer-icons-container bg-[#fbfbfb] p-[10px] pb-[6px] border-[1px] border-[#ebebeb]">
-          <img src={whatsapp_icon} alt="" />
+          <img src={whatsapp_icon} alt="whatsapp_icon" loading="lazy" />
         </div>
       </div>
       <div className="footer-copyright w-full justify-center flex flex-col items-center gap-5 font-medium mb-5">

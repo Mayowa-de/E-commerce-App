@@ -5,7 +5,7 @@ import Items from "../Items/Items";
 
 export default function Popular() {
   return (
-    <div className="popular flex gap-10 justify-center flex-col w-full items-center md:px-20 px-2 mt-2 mb-12">
+    <main className="popular flex gap-10 justify-center flex-col w-full items-center md:px-20 px-2 mt-2 mb-12">
       <div className="flex gap-5 items-center flex-col">
       <h1 className="md:text-3xl text-xl font-bold">POPULAR IN WOMEN</h1>
       <hr className="md:w-80 w-56" />
@@ -25,6 +25,6 @@ export default function Popular() {
           );
         })}
       </div>
-    </div>
+    </main>
   );
 }

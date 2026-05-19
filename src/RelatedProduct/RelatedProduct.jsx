@@ -5,7 +5,7 @@ import Items from '../Items/Items'
 
 export default function RelatedProduct() {
   return (
-    <div className='relatedproduct px-12 flex flex-col gap-10 justify-center items-center mt-16 mb-12'>
+    <main className='relatedproduct px-12 flex flex-col gap-10 justify-center items-center mt-16 mb-12'>
       <div className='flex flex-col gap-5'>
       <h1 className='text-4xl font-bold'>Related Products</h1>
       <hr className='w-72 border-gray-500'/>
@@ -24,6 +24,6 @@ export default function RelatedProduct() {
               );
         })}
       </div>
-    </div>
+    </main>
   )
 }
