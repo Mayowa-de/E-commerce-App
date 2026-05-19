@@ -7,7 +7,7 @@ import whatsapp_icon from "../assets/Assets/whatsapp_icon.png";
 
 export default function Footer() {
   return (
-    <div className="footer flex flex-col justify-center items-center gap-10 w-full">
+    <Footer className="footer flex flex-col justify-center items-center gap-10 w-full">
       <div className="footer-logo flex items-center gap-10 w-72 justify-center md:w-full">
         <img src={footer_logo} alt="" className="md:w-48 md:h-48 w-28 h-28" />
         <p className="md:text-4xl text-xl font-bold">K-SHOPPER</p>
@@ -24,7 +24,7 @@ export default function Footer() {
           <img src={instagram_icon} alt="" />
         </div>
         <div className="footer-icons-container bg-[#fbfbfb] p-[10px] pb-[6px] border-[1px] border-[#ebebeb]">
-          <img src={pinestar_icon} alt="" />
+          <img src={pinestar_icon} alt="pinestar" />
         </div>
         <div className="footer-icons-container bg-[#fbfbfb] p-[10px] pb-[6px] border-[1px] border-[#ebebeb]">
           <img src={whatsapp_icon} alt="" />
@@ -34,6 +34,6 @@ export default function Footer() {
         <hr className="md:w-[35%] h-[3px] w-full bg-[#c7c7c7] border-none"/>
         <p>Copyright &copy; 2025 - All Right Reserve</p>
       </div>
-    </div>
+    </Footer>
   );
 }
