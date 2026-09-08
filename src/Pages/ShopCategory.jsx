@@ -9,7 +9,7 @@ export default function ShopCategory(props) {
   const categoryName = props.category === 'kid' ? 'Kids' : `${props.category.charAt(0).toUpperCase()}${props.category.slice(1)}'s`
   return (
     <main className='shop-category mx-auto flex w-full max-w-7xl flex-col items-center px-5 pb-16 sm:px-8 md:px-12 lg:px-20'>
-      <img loading="lazy" className='h-44 w-full object-cover object-center sm:h-64 md:h-80' src={props.banner} alt={`${categoryName} collection banner`} />
+      <img loading="eager" className='h-auto w-full object-contain' src={props.banner} alt={`${categoryName} collection banner`} />
       <div className="mt-8 flex w-full flex-col items-start justify-between gap-4 border-b border-[#dedbd7] pb-4 sm:flex-row sm:items-center">
         <div>
           <p className="mb-1 text-xs font-bold uppercase tracking-[0.2em] text-[#b24835]">The collection</p>

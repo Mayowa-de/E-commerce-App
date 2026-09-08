@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="footer-icons-container bg-[#2b3734] p-3 transition-colors hover:bg-[#b24835]">
           <img src={pinestar_icon} alt="pinestar_icon" loading="lazy"/>
         </div>
-        <div className="footer-icons-container bg-[#2b3734] p-3 transition-colors hover:bg-[#b24835]">
+        <div className="footer-icons-container bg-[#2b3734] p-3 transition-colors  hover:bg-[#b24835]">
           <img src={whatsapp_icon} alt="whatsapp_icon" loading="lazy" />
         </div>
       </div>
