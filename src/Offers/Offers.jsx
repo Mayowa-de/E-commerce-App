@@ -15,7 +15,7 @@ export default function Offers() {
         </Link>
       </div>
       <div className="offers-right flex justify-center md:justify-end">
-        <img src={exclusive_image} alt="Featured clothing from the exclusive collection" className="h-auto max-h-[300px] w-full max-w-sm object-contain sm:max-h-[380px]"/>
+        <img loading="lazy" src={exclusive_image} alt="Featured clothing from the exclusive collection" className="h-auto max-h-[300px] w-full max-w-sm object-contain sm:max-h-[380px]"/>
       </div>
     </div>
     </section>

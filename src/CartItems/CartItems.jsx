@@ -29,14 +29,14 @@ export default function CartItems() {
             {selectedProducts.map((product) => (
               <article key={product.id} className="grid grid-cols-[72px_1fr_24px] items-center gap-4 border-b border-[#dedbd7] py-5 md:grid-cols-[2fr_1fr_1fr_1fr_1fr_32px] md:gap-5">
                 <div className="flex min-w-0 items-center gap-4 md:min-w-0">
-                  <img src={product.image} alt={product.name} className="h-20 w-16 shrink-0 object-cover" />
+                  <img loading="lazy" src={product.image} alt={product.name} className="h-20 w-16 shrink-0 object-cover" />
                   <p className="line-clamp-2 text-sm font-medium text-[#1e2524] md:text-base">{product.name}</p>
                 </div>
                 <p className="hidden text-sm text-[#5f625f] md:block">${product.new_price}</p>
                 <p className="hidden w-10 border border-[#c9b7ae] py-2 text-center text-sm md:block">{cartItems[product.id]}</p>
                 <p className="hidden text-sm font-bold text-[#b24835] md:block">${product.new_price * cartItems[product.id]}</p>
                 <p className="hidden text-sm capitalize text-[#77736f] md:block">{product.category}</p>
-                <button type="button" aria-label={`Remove ${product.name}`} onClick={() => removeFromCart(product.id)} className="flex h-8 w-8 items-center justify-center border border-[#c9b7ae] transition-colors hover:border-[#b24835] hover:bg-[#b24835]"><img src={remove_icon} alt="" className="h-3 w-3" /></button>
+                <button type="button" aria-label={`Remove ${product.name}`} onClick={() => removeFromCart(product.id)} className="flex h-8 w-8 items-center justify-center border border-[#c9b7ae] transition-colors hover:border-[#b24835] hover:bg-[#b24835]"><img loading="lazy" src={remove_icon} alt="" className="h-3 w-3" /></button>
                 <div className="col-span-2 flex items-center justify-between text-sm md:hidden">
                   <span className="text-[#77736f]">${product.new_price} x {cartItems[product.id]}</span>
                   <span className="font-bold text-[#b24835]">${product.new_price * cartItems[product.id]}</span>

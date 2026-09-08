@@ -1,23 +1,22 @@
 import React from 'react'
-//import './LoginSignUp.css'
+import { Link } from 'react-router-dom'
 
 export default function LoginSignup() {
   return (
-    <div className='loginsignup flex justify-center mt-10 mb-10'>
-      <div className="loginsignup-container bg-white/55 w-full p-4 justify-center items-center shadow-2xl gap-5 flex flex-col">
-        <h1 className='text-3xl font-bold mt-5 mb-5'>Sign Up</h1>
-        <div className="loginsignup-field flex flex-col gap-5 w-full">
-          <input type="text" placeholder='Your Name' className='p-3  border-[1px] border-black' />
-          <input type="email" placeholder='Email Address' className='p-3  border-[1px] border-black' />
-          <input type="Password" placeholder='Password' className='p-3  border-[1px] border-black'/> 
+    <main className='loginsignup flex min-h-[calc(100vh-80px)] w-full items-center justify-center bg-[#e6d8d2] px-5 py-12 sm:px-8'>
+      <form className="loginsignup-container w-full max-w-lg bg-[#f5f1ee] p-6 shadow-xl sm:p-10" onSubmit={(event) => event.preventDefault()}>
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#b24835]">Welcome to K-SHOP</p>
+        <h1 className='text-3xl font-black tracking-tight text-[#1e2524] sm:text-4xl'>Create your account</h1>
+        <p className="mt-3 text-sm leading-6 text-[#77736f]">Save your favourites and stay close to every new drop.</p>
+        <div className="loginsignup-field mt-8 flex flex-col gap-4">
+          <label className="flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#1e2524]">Your name<input type="text" placeholder='Your name' className='border border-[#c9b7ae] bg-white p-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-[#b24835]' /></label>
+          <label className="flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#1e2524]">Email address<input type="email" placeholder='you@example.com' className='border border-[#c9b7ae] bg-white p-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-[#b24835]' /></label>
+          <label className="flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#1e2524]">Password<input type="password" placeholder='Create a password' className='border border-[#c9b7ae] bg-white p-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-[#b24835]' /></label>
         </div>
-        <button className='bg-red-600 text-white w-full p-4'>Continue</button>
-        <p className='loginsignup-login font-medium'>Already have an account? <a href='#' className='underline'><span>Login here</span></a></p>
-        <div className="loginsignup-agree flex gap-3">
-          <input type="checkbox"  name='' id=''/>
-          <p>By continuing i agree to the terms of use & policy</p>
-        </div>
-      </div>
-    </div>
+        <button type="submit" className='mt-7 w-full bg-[#1e2524] p-4 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#b24835]'>Continue</button>
+        <p className='loginsignup-login mt-5 text-sm text-[#77736f]'>Already have an account? <Link to='/' className='font-bold text-[#b24835] underline'>Login here</Link></p>
+        <label className="loginsignup-agree mt-6 flex gap-3 text-xs leading-5 text-[#77736f]"><input type="checkbox" className="mt-1 accent-[#b24835]" /> <span>By continuing I agree to the terms of use and privacy policy.</span></label>
+      </form>
+    </main>
   )
 }

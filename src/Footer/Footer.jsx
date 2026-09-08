@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-12 sm:px-8 md:px-12 lg:px-20">
       <div className="flex flex-col justify-between gap-8 border-b border-[#50605c] pb-10 md:flex-row md:items-end">
         <div className="flex items-center gap-4">
-        <img src={footer_logo} alt="K-SHOP logo" className="h-20 w-20 object-contain md:h-24 md:w-24" />
+        <img loading="lazy" src={footer_logo} alt="K-SHOP logo" className="h-20 w-20 object-contain md:h-24 md:w-24" />
         <div>
         <p className="text-2xl font-black tracking-tight md:text-3xl">K-SHOP</p>
         <p className="mt-1 text-sm text-[#b9c0ba]">Wear your everyday well.</p>
