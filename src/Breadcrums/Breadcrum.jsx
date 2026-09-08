@@ -5,9 +5,16 @@ import { Link } from 'react-router-dom'
 
 export default function Breadcrum(props) {
   const {product} = props
+  if (!product) return null
   return (
-    <div className='breadcrum text-[#5e5e5e] flex m-5 md:ml-12 gap-3 justify-center items-center text-sm cursor-pointer'>
-      <Link to='/' style={{textDecoration:'none'}}>HOME</Link> <img src={arrow_icon} alt="arrow icon" width={"20px"} height={"20px"} className='h-3 w-3' /><Link to='/'> SHOP</Link> <img src={arrow_icon} alt="arrow icon" className='h-3 w-3'/>{product.category} <img src={arrow_icon} alt="arrow icon" className='h-3 w-3'/>{product.name}
+    <div className='breadcrum mx-auto flex w-full max-w-7xl flex-wrap items-center gap-2 px-5 py-5 text-xs uppercase tracking-[0.12em] text-[#77736f] sm:px-8 md:px-12 lg:px-20'>
+      <Link to='/' className="transition-colors hover:text-[#b24835]">Home</Link>
+      <img src={arrow_icon} alt="" className='h-3 w-3' />
+      <Link to='/' className="transition-colors hover:text-[#b24835]">Shop</Link>
+      <img src={arrow_icon} alt="" className='h-3 w-3'/>
+      <span>{product.category}</span>
+      <img src={arrow_icon} alt="" className='h-3 w-3'/>
+      <span className="max-w-[16rem] truncate text-[#1e2524]">{product.name}</span>
     </div>
   )
 }

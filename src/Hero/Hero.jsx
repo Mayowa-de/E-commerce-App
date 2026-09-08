@@ -5,30 +5,45 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <div className="hero grid md:flex grid-cols-1 gap-10 bg-[linear-gradient(100deg,_#fde1ff,_#e1ffea22_60%)] justify-center items-center w-full md:gap-40">
-      <div className="flex flex-col justify-center items-center ">
-      <div className="hero-left text-3xl font-medium -mt-20 mb-20 items-center">
-        <h2>NEW ARRIVALS ONLY</h2>
+    <section className="hero relative isolate w-full overflow-hidden bg-[#f5f1ee]">
+      <div className="absolute inset-y-0 right-0 -z-10 hidden w-1/2 bg-[#e6d8d2] md:block" />
+      <div className="mx-auto grid min-h-[620px] max-w-7xl grid-cols-1 items-center gap-8 px-5 py-12 sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:gap-12 md:px-12 md:py-16 lg:min-h-[680px] lg:px-20">
+        <div className="flex flex-col items-start justify-center">
+          <div className="mb-7 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.24em] text-[#b24835]">
+            <span className="h-px w-10 bg-[#b24835]" />
+            New arrivals
+          </div>
+          <h1 className="max-w-xl text-5xl font-black leading-[0.95] tracking-tight text-[#1e2524] sm:text-6xl lg:text-8xl">
+            New season.
+            <span className="block text-[#b24835]">Fresh energy.</span>
+          </h1>
+          <p className="mt-7 max-w-md text-base leading-7 text-[#5f625f] sm:text-lg">
+            Easy pieces, expressive layers, and everyday essentials designed to move with you.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-5">
+            <Link
+              to="/womens"
+              className="group flex items-center gap-4 bg-[#1e2524] px-6 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#b24835]"
+            >
+              Shop new arrivals
+              <img src={arrow_icon} alt="" className="w-5 brightness-0 invert transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link to="/mens" className="border-b border-[#1e2524] pb-1 text-sm font-bold uppercase tracking-[0.12em] text-[#1e2524]">
+              Explore menswear
+            </Link>
+          </div>
+          <div className="mt-12 flex gap-8 border-t border-[#d8cbc5] pt-5 text-xs uppercase tracking-[0.14em] text-[#77736f]">
+            <span><strong className="block text-lg text-[#1e2524]">36+</strong> styles</span>
+            <span><strong className="block text-lg text-[#1e2524]">04</strong> categories</span>
+          </div>
+        </div>
+        <div className="relative flex min-h-[330px] items-end justify-center bg-[#e6d8d2] px-8 pt-8 sm:min-h-[440px] md:min-h-[560px] md:px-12 md:pt-12">
+          <div className="absolute left-5 top-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#7b6b64] md:left-8 md:top-8">K / 2025 EDIT</div>
+          <img src={hand_icon} alt="" className="absolute right-8 top-12 w-12 opacity-80 sm:right-12 sm:w-16 md:right-16 md:top-16" />
+          <img src={hero_image} alt="Model wearing a new K-SHOP collection" className="relative z-10 max-h-[430px] w-auto max-w-full object-contain drop-shadow-2xl sm:max-h-[520px] md:max-h-[600px]" />
+          <div className="absolute bottom-5 left-5 text-xs font-medium text-[#7b6b64] md:bottom-8 md:left-8">Designed for everyone</div>
+        </div>
       </div>
-      <div className="flex flex-col  text-justify">
-      <div className="hero-hand-icon flex items-center gap-5">
-        <p className="md:text-5xl text-2xl font-bold">new</p>
-        <img src={hand_icon} alt="hand icon" className="md:w-32 md:h-32 w-20 h-20" />
-      </div>
-      <div className="hero-p md:text-5xl text-2xl font-bold flex flex-col ">
-      <p >collections</p>
-      <p>for everyone</p>
-      </div>
-      <button className="hero-latest-btn flex gap-5 items-center justify-center bg-red-500 rounded-4xl px-4 p-4 mt-10 cursor-pointer">
-        
-        <h1 className="text-2xl font-medium text-white"><Link to=''>Latest Collections</Link></h1>
-        <img src={arrow_icon} alt="arrow icon"  className=""/>
-      </button>
-      </div>
-      </div>
-      <div className="hero-right flex justify-center">
-        <img src={hero_image} alt="hero image"  className="md:w-md w-56"/>
-      </div>
-    </div>
+    </section>
   );
 }

@@ -1,81 +1,69 @@
 import React, { useContext } from "react";
-//import "./CartItems.css";
+import { Link } from "react-router-dom";
 import { ShopContext } from "../Pages/ShopContext";
-import hand_icon from "../assets/Assets/hand_icon.png";
 import remove_icon from "../assets/Assets/cart_cross_icon.png";
 
 export default function CartItems() {
-  const { getTotalCartAmount, all_product, cartItems, removeFromCart } =
-    useContext(ShopContext);
+  const { getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
+  const selectedProducts = all_product.filter((product) => cartItems[product.id] > 0);
+  const total = getTotalCartAmount();
+
   return (
-    <main className="cartitems flex flex-col mt-10  gap-3">
-      <div className="cartitems-format-main flex gap-36 text-[#454545] ml-10 font-medium">
-        <p>Products</p>
-        <p>Title</p>
-        <p>Price</p>
-        <p>Quantity</p>
-        <p>Total</p>
-        <p>Remove</p>
+    <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 py-10 sm:px-8 md:px-12 md:py-14 lg:px-20">
+      <div className="border-b border-[#dedbd7] pb-5">
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#b24835]">Your edit</p>
+        <h1 className="text-3xl font-black tracking-tight text-[#1e2524] sm:text-4xl">Shopping cart</h1>
       </div>
-      <hr className="border-0 h-[3px] bg-[#e2e2e2]"  />
-      {all_product.map((e) => {
-        if (cartItems[e.id] > 0) {
-          return (
-            <>
-              <div className="cartitems-format cartitems-format-main flex w-full gap-[95px] ml-4 font-medium p-[20px] items-center">
-                <img src={e.image} alt="" className="cartitem-product-icon w-12 h-12" />
-                <p className="w-40">{e.name}</p>
-                <p className="">${e.new_price}</p>
-                <button className="cartitems-quantity border-[#e2e2e2] p-2 px-4 border-2 ml-14">
-                  {cartItems[e.id]}
-                </button>
-                <p className="ml-16">${e.new_price * cartItems[e.id]}</p>
-                <img
-                  className="cartitem-remove-icon ml-18"
-                  src={remove_icon}
-                  onClick={() => {
-                    removeFromCart(e.id);
-                  }}
-                />
-                
-              </div>
-              <hr className="h-[3px] border-0 bg-[#e2e2e2]"/>
-              </>
-              
-          );
-        }
-        return null;
-      })}
-         
-      <div className="cartitems-down flex flex-col gap-10 font-medium">
-        <div className="cartitems-total font-medium">
-          <h1>cart Total</h1>
+
+      {selectedProducts.length === 0 ? (
+        <div className="flex min-h-[280px] flex-col items-center justify-center gap-5 bg-[#e6d8d2] px-5 text-center">
+          <p className="text-lg font-bold text-[#1e2524]">Your cart is waiting for something special.</p>
+          <Link to="/" className="bg-[#1e2524] px-6 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#b24835]">Continue shopping</Link>
         </div>
-        <div className="cartitems-total-item flex w-full justify-between">
-          <p>Subtotal</p>
-          <p>${getTotalCartAmount()}</p>
-        </div>
-        <hr className="border-none bg-[#e2e2e2] h-[3px]"/>
-        <div className="cartitems-total-item flex justify-between w-full">
-          <p>Shipping fee</p>
-          <p>Free</p>
-        </div>
-        <hr className="border-none bg-[#e2e2e2] h-[3px]"/>
-        <div className="cartitem-total-item flex w-full justify-between">
-          <h3>Total</h3>
-          <h3>${0}</h3>
-        </div>
-      </div>
-      <button className="">PROCEED TO CHECKOUT</button>
-      <div className="cartitems-promocode flex flex-col gap-3 mt-5 mb-10">
-        <p className="font-medium">If you have a promo code, Enter it here </p>
-        <div className="cartitems-promobox flex flex-col  p-2 w-72 gap-5">
-          <div className="bg-[#eaeaea] p-2 w-full">
-          <input type="text" placeholder="promo code" className="p-3 bg-transparent border-0 w-full outline-none font-medium" />
+      ) : (
+        <>
+          <div className="hidden border-b border-[#dedbd7] pb-3 text-xs font-bold uppercase tracking-[0.12em] text-[#77736f] md:grid md:grid-cols-[2fr_1fr_1fr_1fr_1fr_32px] md:gap-5">
+            <span>Product</span><span>Price</span><span>Quantity</span><span>Total</span><span>Category</span><span />
           </div>
-          <button className="bg-black text-white items-center p-3">Submit</button>
-        </div>
-      </div>
+          <div className="flex flex-col">
+            {selectedProducts.map((product) => (
+              <article key={product.id} className="grid grid-cols-[72px_1fr_24px] items-center gap-4 border-b border-[#dedbd7] py-5 md:grid-cols-[2fr_1fr_1fr_1fr_1fr_32px] md:gap-5">
+                <div className="flex min-w-0 items-center gap-4 md:min-w-0">
+                  <img src={product.image} alt={product.name} className="h-20 w-16 shrink-0 object-cover" />
+                  <p className="line-clamp-2 text-sm font-medium text-[#1e2524] md:text-base">{product.name}</p>
+                </div>
+                <p className="hidden text-sm text-[#5f625f] md:block">${product.new_price}</p>
+                <p className="hidden w-10 border border-[#c9b7ae] py-2 text-center text-sm md:block">{cartItems[product.id]}</p>
+                <p className="hidden text-sm font-bold text-[#b24835] md:block">${product.new_price * cartItems[product.id]}</p>
+                <p className="hidden text-sm capitalize text-[#77736f] md:block">{product.category}</p>
+                <button type="button" aria-label={`Remove ${product.name}`} onClick={() => removeFromCart(product.id)} className="flex h-8 w-8 items-center justify-center border border-[#c9b7ae] transition-colors hover:border-[#b24835] hover:bg-[#b24835]"><img src={remove_icon} alt="" className="h-3 w-3" /></button>
+                <div className="col-span-2 flex items-center justify-between text-sm md:hidden">
+                  <span className="text-[#77736f]">${product.new_price} x {cartItems[product.id]}</span>
+                  <span className="font-bold text-[#b24835]">${product.new_price * cartItems[product.id]}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-[1fr_360px] md:items-start">
+            <div className="border border-[#dedbd7] bg-[#f5f1ee] p-5 sm:p-6">
+              <p className="mb-3 text-sm font-bold text-[#1e2524]">Have a promo code?</p>
+              <div className="flex border border-[#c9b7ae] bg-white p-1">
+                <label htmlFor="promo-code" className="sr-only">Promo code</label>
+                <input id="promo-code" type="text" placeholder="Enter code" className="min-w-0 flex-1 px-3 py-2 text-sm outline-none" />
+                <button type="button" className="bg-[#1e2524] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-[#b24835]">Apply</button>
+              </div>
+            </div>
+            <div className="bg-[#e6d8d2] p-5 sm:p-6">
+              <h2 className="text-xl font-black text-[#1e2524]">Cart total</h2>
+              <div className="mt-5 flex justify-between border-b border-[#c9b7ae] pb-3 text-sm"><span>Subtotal</span><strong>${total.toFixed(2)}</strong></div>
+              <div className="flex justify-between border-b border-[#c9b7ae] py-3 text-sm"><span>Shipping</span><strong>Free</strong></div>
+              <div className="flex justify-between pt-4 text-lg font-black text-[#b24835]"><span>Total</span><span>${total.toFixed(2)}</span></div>
+              <button type="button" className="mt-6 w-full bg-[#1e2524] p-4 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#b24835]">Proceed to checkout</button>
+            </div>
+          </div>
+        </>
+      )}
     </main>
   );
 }

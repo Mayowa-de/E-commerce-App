@@ -1,43 +1,40 @@
 import React, { useContext } from 'react'
-//import './ShopCategory.css'
-import {ShopContext} from './ShopContext'
+import { ShopContext } from './ShopContext'
 import dropdown_icon from '../assets/Assets/dropdown_icon.png'
 import Items from '../Items/Items'
 
 export default function ShopCategory(props) {
   const {all_product} =useContext(ShopContext)
+  const products = all_product.filter((item) => props.category === item.category)
+  const categoryName = props.category === 'kid' ? 'Kids' : `${props.category.charAt(0).toUpperCase()}${props.category.slice(1)}'s`
   return (
-    <div className='shop-category flex flex-col justify-center w-full items-center'>
-      <img className='shop-category-banner' src={props.banner} alt="banner image"  />
-      <div className="gap-[600px] flex justify-center w-full px-4 p-3 mt-10  items-center">
-        <p className='font-medium'>
-          <span className='font-medium'>Showing 1-12</span> out  of 36 Products
-        </p>
-        <div className="shopcategory-sort flex items-center gap-3 border-[1px] rounded-3xl p-2">
-          Sort by <img src={dropdown_icon} alt="image of list of item" className='w-3 h-2'/>
+    <main className='shop-category mx-auto flex w-full max-w-7xl flex-col items-center px-5 pb-16 sm:px-8 md:px-12 lg:px-20'>
+      <img className='h-44 w-full object-cover object-center sm:h-64 md:h-80' src={props.banner} alt={`${categoryName} collection banner`} />
+      <div className="mt-8 flex w-full flex-col items-start justify-between gap-4 border-b border-[#dedbd7] pb-4 sm:flex-row sm:items-center">
+        <div>
+          <p className="mb-1 text-xs font-bold uppercase tracking-[0.2em] text-[#b24835]">The collection</p>
+          <h1 className="text-3xl font-black tracking-tight text-[#1e2524]">{categoryName}</h1>
+          <p className='mt-1 text-sm text-[#77736f]'>Showing {products.length} products</p>
         </div>
+        <button type="button" className="flex items-center gap-3 border border-[#c9b7ae] bg-[#f5f1ee] px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#1e2524]">
+          Sort by <img src={dropdown_icon} alt="" className='h-2 w-3'/>
+        </button>
       </div>
-      <div className="shopcategory-products grid grid-cols-3 gap-5 w-5xl justify-center">
-        {all_product.map((item, i)=>{
-                if(props.category === item.category){
-                  return (
-                    <Items
-                      key={i}
-                      id={item.id}
-                      name={item.name}
-                      image={item.image}
-                      new_price={item.new_price}
-                      old_price={item.old_price}
-                    />
-                  );
-                }else{
-                  return null;
-                }
-        })}
+      <div className="shopcategory-products grid w-full grid-cols-2 gap-x-4 gap-y-8 pt-8 sm:grid-cols-3 md:gap-5 lg:grid-cols-4">
+        {products.map((item) => (
+          <Items
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            new_price={item.new_price}
+            old_price={item.old_price}
+          />
+        ))}
       </div>
-      <div className="shopcategory-loadmore border-none rounded-4xl px-6 mb-7 p-4 mt-10 justify-center text-black/50 bg-[#ededed] flex">
+      <button type="button" className="mt-12 border border-[#c9b7ae] px-7 py-4 text-xs font-bold uppercase tracking-[0.12em] text-[#1e2524] transition-colors hover:border-[#b24835] hover:bg-[#b24835] hover:text-white">
         Explore more
-      </div>
-    </div>
+      </button>
+    </main>
   )
 }

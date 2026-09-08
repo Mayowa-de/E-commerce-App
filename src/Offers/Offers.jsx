@@ -4,18 +4,20 @@ import exclusive_image from "../assets/Assets/exclusive_image.png";
 import { Link } from "react-router-dom";
 export default function Offers() {
   return (
-    <div className="offers bg-[linear-gradient(100deg,_#fde1ff,_#e1ffea22_60%)] flex gap-2 md:gap-20 items-center justify-center w-full md:w-5xl ">
-      <div className="offers-left flex flex-col gap-5 pl-7 w-full">
-        <h1 className="md:text-5xl text-2xl font-bold">Exclusive</h1>
-        <h1 className="md:text-5xl font-bold text-2xl">Offers For You</h1>
-        <p className="md:text-2xl font-bold text-md">ONLY ON BEST SELLERS PRODUCTS</p>
-        <Link to="/login" style={{ textDecoration: "none" }}>
-          <button className="bg-red-600 rounded-4xl md:w-72 md:h-16 w-32 h-10 text-md md:text-3xl text-white">Check Now</button>
+    <section className="offers w-full max-w-7xl bg-[#e6d8d2] px-5 py-10 sm:px-8 md:px-12 md:py-14 lg:px-20">
+      <div className="grid items-center gap-8 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
+      <div className="offers-left flex flex-col items-start">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#b24835]">A little something extra</p>
+        <h2 className="max-w-lg text-4xl font-black leading-[0.98] tracking-tight text-[#1e2524] sm:text-5xl lg:text-6xl">Exclusive offers for your everyday rotation.</h2>
+        <p className="mt-5 max-w-md text-sm leading-6 text-[#5f625f] sm:text-base">Thoughtful staples and best sellers, selected for easy, confident dressing.</p>
+        <Link to="/login" className="mt-8 inline-flex bg-[#1e2524] px-6 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#b24835]">
+          Check the edit
         </Link>
       </div>
-      <div className="offers-right w-full flex">
-        <img src={exclusive_image} alt="image " className="md:w-96 w-72 h-72 md:h-96"/>
+      <div className="offers-right flex justify-center md:justify-end">
+        <img src={exclusive_image} alt="Featured clothing from the exclusive collection" className="h-auto max-h-[300px] w-full max-w-sm object-contain sm:max-h-[380px]"/>
       </div>
     </div>
+    </section>
   );
 }

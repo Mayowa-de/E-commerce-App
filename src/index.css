@@ -1,4 +1,29 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Montserrat', sans-serif;
+  color: #1e2524;
+  background: #f5f1ee;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f5f1ee;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* *{
   margin: 0;
