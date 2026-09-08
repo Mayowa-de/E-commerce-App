@@ -35,6 +35,7 @@ export default function Navbar() {
             ))}
         </ul>
         <div className="nav-actions flex items-center gap-3">
+            <Link to='/login' className="hidden border-b border-[#1e2524] pb-1 text-xs font-bold uppercase tracking-[0.12em] text-[#1e2524] transition-colors hover:border-[#b24835] hover:text-[#b24835] sm:block">Login</Link>
            <Link to='/cart' className='relative' aria-label="Open shopping cart">
              <img src={cart_icon} alt="" className="h-8 w-8 object-contain" />
              <span className="nav-cart-count absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#b24835] px-1 text-[10px] font-bold text-white">{getTotalCartItems()}</span>
@@ -46,6 +47,7 @@ export default function Navbar() {
         {mobileMenuOpen ? <div className="absolute left-0 right-0 top-full border-b border-[#dedbd7] bg-[#f5f1ee] px-5 py-4 shadow-lg md:hidden">
           <ul className="flex flex-col gap-1 text-sm font-bold uppercase tracking-[0.12em] text-[#5f625f]">
             {navigation.map((item) => <li key={item.label}><Link to={item.path} onClick={() => selectMenu(item.label)} className="block border-b border-[#dedbd7] py-3 last:border-0">{item.label}</Link></li>)}
+            <li><Link to="/login" onClick={() => setMobileMenuOpen(false)} className="block py-3 text-[#b24835]">Login</Link></li>
           </ul>
         </div> : null}
         </header>

@@ -25,6 +25,17 @@ body {
   }
 }
 
+@keyframes campaign-image-in {
+  from {
+    opacity: 0.45;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* *{
   margin: 0;
 }

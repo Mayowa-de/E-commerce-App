@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ShopContext } from './ShopContext'
 import dropdown_icon from '../assets/Assets/dropdown_icon.png'
 import Items from '../Items/Items'
+import CategoryBanner from '../CategoryBanner/CategoryBanner'
 
 export default function ShopCategory(props) {
   const {all_product} =useContext(ShopContext)
@@ -9,7 +10,7 @@ export default function ShopCategory(props) {
   const categoryName = props.category === 'kid' ? 'Kids' : `${props.category.charAt(0).toUpperCase()}${props.category.slice(1)}'s`
   return (
     <main className='shop-category mx-auto flex w-full max-w-7xl flex-col items-center px-5 pb-16 sm:px-8 md:px-12 lg:px-20'>
-      <img loading="eager" className='h-auto w-full object-contain' src={props.banner} alt={`${categoryName} collection banner`} />
+      <CategoryBanner activeCategory={props.category === 'kid' ? 'kids' : props.category} />
       <div className="mt-8 flex w-full flex-col items-start justify-between gap-4 border-b border-[#dedbd7] pb-4 sm:flex-row sm:items-center">
         <div>
           <p className="mb-1 text-xs font-bold uppercase tracking-[0.2em] text-[#b24835]">The collection</p>
